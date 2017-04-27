@@ -99,8 +99,8 @@
         category: this.category,
         publishedOn: this.publishedOn,
         title: this.title,
-        author_id: this.author_id
-      };
+        author_id: this.author_id,
+      },
     })
     .then(console.log)
     .then(callback);
