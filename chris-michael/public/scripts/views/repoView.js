@@ -14,7 +14,7 @@
   // TODO: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
   repoView.toHtml = function() {
-    var render = Handlebars.compile($('#article-template').text());
+    var render = Handlebars.compile($('#repo-template').text());
     return render(this)
   };
 
