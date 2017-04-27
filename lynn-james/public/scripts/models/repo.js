@@ -11,19 +11,18 @@
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
     $.ajax({
-         url: `https://api.github.com/${username}/repos`,
-         method: 'GET',
-         header: {
-           Authorization: `token ${token}`
-         }
-       })
-       .then(
-         function(response) {
-           repos.all = response.responseText;
-           callback();
-         }
-       )
-     };
+      url: `https://api.github.com/users/${username}/repos`,
+      method: 'GET',
+      header: {
+        Authorization: `token ${token}`
+      }
+    })
+     .then(
+       function(response) {
+         repos.all = response;
+         callback();
+       }
+     )
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
