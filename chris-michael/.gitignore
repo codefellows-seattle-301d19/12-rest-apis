@@ -1,2 +1,2 @@
 node_modules
-gitToken.js
+public/scripts/models/githubToken.js
