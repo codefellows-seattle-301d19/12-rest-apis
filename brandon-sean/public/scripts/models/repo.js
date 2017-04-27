@@ -14,7 +14,7 @@
       url: 'https://api.github.com/user/repos?type=owner',
       method: 'GET',
       headers: {
-        Authorization: `token ${githubToken}`
+        Authorization: `token ${token}`
       }
     })
     .then (data => repos.all = data)
