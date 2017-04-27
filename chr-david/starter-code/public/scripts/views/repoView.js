@@ -11,17 +11,20 @@
     $about.show().siblings().hide();
   };
 
-  // TODO: Remember that new Handlebars template? Let's compile it!
+  // TODOx: Remember that new Handlebars template? Let's compile it!
   // Save the result in this `render` variable.
 
-  repoView.index = function() {
+  let render = Handlebars.compile($('#repo-template').text());
+
+  repoView.index = () => {
     ui();
 
     // The jQuery `append` method lets us append an entire array of HTML elements at once:
     $('#about ul').append(
-      repos.with('name').map(render) // Want to filter by a different property other than name?
+      repos.with('name').map(render)
+ // Want to filter by a different property other than name?
     );
   };
-
+  repos.requestRepos(repoView.index);
   module.repoView = repoView;
 })(window);
