@@ -15,7 +15,7 @@
     //       being an array with a bunch of repo objects in it, so you'll need to
     //       populate it with the response from Github before you call the callback.
 
-    $.get(`https://api.github.com/users/jjfeore?access_token=${gitToken}`)
+    $.get(`https://api.github.com/users/jjfeore/repos?access_token=${gitToken}`)
     .then(
       results => {
         repos.all = results.map(ele => new MyRepos(ele));
