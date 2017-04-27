@@ -4,10 +4,10 @@ const pg = require('pg');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3200;
 const app = express();
 // const conString = 'postgres://USERNAME:PASSWORD@HOST:PORT';
-const conString = ''; // TODO: Don't forget to set your own conString
+const conString = 'postgres://localhost:5432/kilovoltdb';
 const client = new pg.Client(conString);
 client.connect();
 client.on('error', err => console.error(err));
@@ -96,6 +96,8 @@ app.delete('/articles', (request, response) => {
   .then(() => response.send('Delete complete'))
   .catch(console.error);
 });
+
+app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
 
 loadDB();
 
