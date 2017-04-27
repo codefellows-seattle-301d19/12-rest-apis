@@ -29,7 +29,7 @@
         Article.loadAll(results);
         callback();
       }
-    )
+    );
   };
 
   Article.numWordsAll = () => {
@@ -52,8 +52,8 @@
         numWords: Article.all.filter(a => a.author === author)
                              .map(a => a.body.match(/\b\w+/g).length)
                              .reduce((a, b) => a + b)
-      }
-    })
+      };
+    });
   };
 
   Article.stats = () => {
@@ -61,7 +61,7 @@
       numArticles: Article.all.length,
       numWords: Article.numWordsAll(),
       Authors: Article.allAuthors(),
-    }
+    };
   };
 
   Article.truncateTable = callback => {
@@ -100,7 +100,7 @@
         publishedOn: this.publishedOn,
         title: this.title,
         author_id: this.author_id
-      }
+      };
     })
     .then(console.log)
     .then(callback);
